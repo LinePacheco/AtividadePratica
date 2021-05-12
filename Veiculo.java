@@ -1,68 +1,75 @@
-import java.util.Scanner;
-
-public class veiculo{
-
-   Scanner entrada = new Scanner(System.in);
 
 
-    private String modelo;
-    private String marca;
-    private String tipodecombustivel;
-    private String placa;
-    private int anodefabricação;
-    private double valordemercado;
-    private double calcularimposto; 
-    private double valor;
-    int n;
+public class Veiculo {
+    
 
-         public String getModelo(){
-        return (modelo);
-     }
-     public String getMarca(){
-        return (marca);
-     }
-     public String getTipodecombustivel(){
-      return (tipodecombustivel);
-     }
-    public String getPlaca(){
-      return (placa);
-     }
-    public int getAnodeFabricação(){
-     return (anodefabricação);
-     }
-     public double getCalcularimposto(){
-      return (calcularimposto);
-     }
-    public void setValordeMercado(double valordemercado){
-        this.valor = valordemercado;
+
+    //atributos
+private String Modelo, Marca, Placa, Tipodecombustivel;
+private double Valordemercado;
+private int Anodefabricacao;
+
+    //contrutor
+public Veiculo(String Modelo,String Marca,String Placa,String Tipodecombustivel,
+int Anodefabricacao, double Valordemercado){
+    this.Modelo = Modelo;
+    this.Marca = Marca;
+    this.Placa = Placa;
+    this.Tipodecombustivel = Tipodecombustivel;
+    this.Anodefabricacao = Anodefabricacao;
+    this.Valordemercado = Valordemercado;
+
+}
+
+    //metodos get e set
+
+public String getModelo(){
+    return Modelo;
+}
+public String getMarca(){
+    return Marca;
+}
+public String getPlaca(){
+    return Placa;
+}
+public String getTipodecombustivel(){
+    return Tipodecombustivel;
+}
+public int getAnodefabricação(){
+    return Anodefabricacao;
+}
+public void setValordemercado(double Valordemercado){
+    this.Valordemercado = Valordemercado;
+}
+
+    //metodos solicitados
+public double calcularImposto(){
+    double imposto;
+    if(Anodefabricacao <= 2001){
+        return (0);
+    }else{ //gasolina, diesel, flex e outros 
+        switch (Tipodecombustivel) {
+            
+            case "gasolina":
+                imposto = (Valordemercado * 0.04);
+                break;
+            case "diesel":
+                imposto = (Valordemercado * 0.04);
+                break;
+            case "flex":
+                imposto = (Valordemercado * 0.04);
+                break;
+            default: 
+                imposto = (Valordemercado * 0.03);
+                break;
+        }
+        return imposto;
     }
-
-    public void exibir(int n){
-     System.out.println("Digite o modelo do seu carro:");
-     modelo = entrada.nextLine();
-
-     System.out.println("Digite a marca do seu carro:");
-     marca = entrada.nextLine();
-
-     System.out.println("Digite a placa do seu carro:");
-     placa = entrada.nextLine();
-
-     System.out.println("Digite ano de fabricação do seu carro:");
-     anodefabricação = entrada.nextInt(); 
-
-     if(anodefabricação <= 2001)
-     { 
-      System.out.println("Você está insento do Imposto!!!");
-     }
-     else{
-     System.out.println("Digite o tipo de combustivel do seu carro:");
-     tipodecombustivel = entrada.nextLine();
-
-    n = 0;
-    System.out.println("Você deve pagar:" + n*4/100);
-
-    System.out.println("Digite o valor de mercado: R$");
-    valordemercado = entrada.nextDouble();
-    }
-   }
+    
+}
+public String imprimir(){
+    return ("Modelo: " + Modelo + "\nMarca: " + Marca + "\nPlaca: " + Placa + 
+    "\nTipo de Combustivel: " + Tipodecombustivel + "\nAno de Fabricação: " + 
+    Anodefabricacao + "\nValor de Mercado: " + Valordemercado);
+}
 }

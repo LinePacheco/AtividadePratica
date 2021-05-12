@@ -24,16 +24,30 @@ public class GerenciarVeiculos {
         }
         return false;
     }
-    public Veiculo buscarPorPlaca (String placa){
-
+    public Veiculo buscarPorPlaca (String Placa){
+        for (Veiculo elementos : automotores) {
+            if(elementos.getPlaca().equalsIgnoreCase(Placa)){ 
+                return elementos;
+        }
+    }
+        return null;
+    
     }
     public String listarVeiculos(){
 
+        return automotores.toString() + " ";
+         
     }
-    public double obeterValorImposto(String placa){
+       /* public double obeterValorImposto(String Placa){
+        for (Veiculo elementos : automotores) {
+            if(elementos.getPlaca().equalsIgnoreCase(Placa)){ 
+            elementos.getTipodecombustivel();
+            elementos.calcularImposto();
+        }
+    } */
 
-    }
-    public String listarVeiculoPorCombustivel(String combustivel){
+    //}
+    //public String listarVeiculoPorCombustivel(String combustivel){
 
-    }
+    //}
 }

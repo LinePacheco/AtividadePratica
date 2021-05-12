@@ -50,21 +50,12 @@ public class AppVeiculo {
                 case 3:
                     System.out.println("Qual a Placa do Veículo a ser encontrado?");
                     Placa = entrada.nextLine();
-                    for (Veiculo elementos : automotores) {
-                        if(elementos.getPlaca().equalsIgnoreCase(Placa)){
-                            System.out.println(elementos.imprimir()); 
-                            break;
-                    }else{
-                        System.out.println("placa invalida");
-                    }
-                }
+                    System.out.println(gerencia.buscarPorPlaca(Placa));
                     break;
             
                 case 4:
-                    for (Veiculo elementos : automotores) {
-                       System.out.println(elementos.imprimir());
-                       System.out.println("\n-------------\n"); 
-                    }
+                    System.out.println(gerencia.listarVeiculos());    
+                
                     
                     
                     break;
